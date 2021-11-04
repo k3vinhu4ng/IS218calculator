@@ -7,12 +7,12 @@ class Division(Calculation):
     def get_result(self):
         """get the multiplication results"""
         try:
-            result = None
+            result_division = None
             for value in self.values:
-                if result is None:
-                    result = value
+                if result_division is None:
+                    result_division = value
                 else:
-                    result /= value
-            return result
+                    result_division /= value
+            return result_division
         except ZeroDivisionError:
             return ZeroDivisionError

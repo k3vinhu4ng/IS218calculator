@@ -1,61 +1,50 @@
 """Testing the Calculator"""
-from calculator.main import Calculator, inc
+import pytest
+from calculator.calculator import Calculator
 
+@pytest.fixture
+def clear_history_fixture():
+    """define a function that will run each time you pass it to a test, it is called a fixture"""
+    # pylint: disable=redefined-outer-name
+    Calculator.clear_history()
+#You have to add the fixture function as a parameter to the test that you want to use it with
 
-def test_inc():
-    """testing inc function"""
-    x_value = 5
-    assert inc(x_value) == 6
+def test_calculator_add_static(clear_history_fixture):
+    """testing that our calculator has a static method for addition"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    assert Calculator.add_numbers(1.0) == 1.0
 
+def test_calculator_subtract_static(clear_history_fixture):
+    """Testing the subtract method of the calc"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    assert Calculator.subtract_numbers(5.0, 2.0) == 3.0
 
-def test_calculator_result():
-    """testing calculator result is 0"""
-    calc = Calculator()
-    assert calc.result == 0
+def test_calculator_multiply_static(clear_history_fixture):
+    """Testing the subtract method of the calc"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    assert Calculator.multiply_numbers(1.0, 5.0) == 5.0
 
+def test_calculator_history_static_property(clear_history_fixture):
+    """Testing the subtract method of the calc"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    Calculator.add_numbers(1.0, 2.0)
+    assert len(Calculator.history) == 1
 
-def test_calculator_add():
-    """Testing the Add function of the calculator"""
-    # Arrange by instantiating the calc class
-    calc = Calculator()
-    # Act by calling the method to be tested
-    calc.add_number(1)
-    # Assert that the results are correct
-    assert calc.result == 1
+def test_clear_history():
+    """Testing clear history returns true for success"""
+    # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
+    Calculator.add_numbers(1.0, 2.0)
+    assert Calculator.clear_history() == True
 
+def test_get_calculation(clear_history_fixture):
+    """Testing getting a specific calculation out of the history"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    Calculator.add_numbers(1.0, 2.0)
+    assert Calculator.get_calculation(0).get_result() == 3
 
-def test_calculator_get_result():
-    """Testing the Get result method of the calculator"""
-    calc = Calculator()
-    calc.add_number(1)
-    assert calc.get_result() == 1
-
-
-def test_calculator_subtract():
-    """Testing the subtract method of the calculator"""
-    calc = Calculator()
-    calc.subtract_number(1)
-    assert calc.get_result() == -1
-
-
-def test_calculator_multiply():
-    """Testing the multiply method of the calculator"""
-    calc = Calculator()
-    calc.result = 9
-    calc.multiply_number(4)
-    assert calc.get_result() == 36
-
-
-def test_calculator_divide():
-    """Testing the divide method of the calculator"""
-    calc = Calculator()
-    calc.result = 50
-    calc.divide_number(2)
-    assert calc.get_result() == 25
-
-
-def test_calculator_divide_by_zero():
-    """Testing the divide method of the calculator dividing by zero"""
-    calc = Calculator()
-    calc.result = 3
-    assert calc.divide_number(0) == ZeroDivisionError
+def test_get_calculation_last(clear_history_fixture):
+    """Testing getting the last calculation from the history"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    Calculator.add_numbers(1.0, 2.0)
+    Calculator.divide_numbers(25.0, 5.0)
+    assert Calculator.get_calculation_last().get_result() == 5

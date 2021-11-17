@@ -1,9 +1,9 @@
 """Testing Operations"""
 
-from calculator.operations.addition import Addition
-from calculator.operations.subtraction import Subtraction
-from calculator.operations.multiplication import Multiplication
-from calculator.operations.division import Division
+from calculator.calculations.addition import Addition
+from calculator.calculations.subtraction import Subtraction
+from calculator.calculations.multiplication import Multiplication
+from calculator.calculations.division import Division
 
 def test_calculation_addition():
     """testing that our calculator has a static method for addition"""
@@ -21,7 +21,7 @@ def test_calculation_subtraction():
     subtraction = Subtraction(mynumbers)
     #Act
     #Assert
-    assert subtraction.get_result() == -8
+    assert subtraction.get_result() == -12.0
 
 def test_calculation_multiplication():
     """testing that our calculator has a static method for multiplication"""
@@ -35,11 +35,11 @@ def test_calculation_multiplication():
 def test_calculation_division():
     """testing that our calculator has a static method for division"""
     #Arrange
-    mynumbers = (60.0, 5.0)
+    mynumbers = (10.0, 10.0)
     division = Division(mynumbers)
     #Act
     #Assert
-    assert division.get_result() == 12
+    assert division.get_result() == 0.01
 
 def test_calculation_division_zero():
     """testing that our calculator has a static method for division by zero"""

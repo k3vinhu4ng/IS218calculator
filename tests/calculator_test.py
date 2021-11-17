@@ -1,50 +1,70 @@
-"""Testing the Calculator"""
 import pytest
+from calculator.history.calculations import Calculations
+from calculator.calculations.addition import Addition
+from calculator.calculations.subtraction import Subtraction
+from calculator.calculations.multiplication import Multiplication
+from calculator.calculations.division import Division
 from calculator.calculator import Calculator
 
 @pytest.fixture
 def clear_history_fixture():
     """define a function that will run each time you pass it to a test, it is called a fixture"""
     # pylint: disable=redefined-outer-name
+    Calculations.clear_history()
+
+
+@pytest.fixture
+def test1():
+    """define a function that will run each time you pass it to a test, it is called a fixture"""
+    # pylint: disable=redefined-outer-name
+    values = (1, 3)
+    Calculator.add_numbers(values)
+
+    values1 = (3, 3)
+    Calculator.subtract_numbers(values1)
+
+    values2 = (1, 10)
+    Calculator.multiply_numbers(values2)
+
+    values3 = (5, 5)
+    Calculator.divide_numbers(values3)
+
+    values4 = (5, 0)
+    Calculator.divide_numbers(values4)
+
+
+def test_multiple(clear_history_fixture, test1):
+    """testing multiple functions"""
+    # pylint: disable=unused-argument,redefined-outer-name
+    assert Calculator.history_length() == 5
+
+
+    assert Calculator.get_first_result_value() == 4
+    assert Calculator.get_num_result_value(0) == 4
+    assert isinstance(Calculator.get_calculation_type(0), Addition)
+
+    assert Calculator.get_num_result_value(1) == -6
+    assert isinstance(Calculator.get_calculation_type(1), Subtraction)
+
+    assert Calculator.get_num_result_value(2) == 10
+    assert isinstance(Calculator.get_calculation_type(2), Multiplication)
+
+    assert Calculator.get_num_result_value(3) == 0.04
+    assert isinstance(Calculator.get_calculation_type(3), Division)
+
+    assert Calculator.get_num_result_value(4) == ZeroDivisionError
+    assert isinstance(Calculator.get_calculation_type(4), Division)
+
+    assert Calculator.get_last_result_value() == ZeroDivisionError
+
     Calculator.clear_history()
-#You have to add the fixture function as a parameter to the test that you want to use it with
-
-def test_calculator_add_static(clear_history_fixture):
-    """testing that our calculator has a static method for addition"""
-    # pylint: disable=unused-argument,redefined-outer-name
-    assert Calculator.add_numbers(1.0) == 1.0
-
-def test_calculator_subtract_static(clear_history_fixture):
-    """Testing the subtract method of the calc"""
-    # pylint: disable=unused-argument,redefined-outer-name
-    assert Calculator.subtract_numbers(5.0, 2.0) == 3.0
-
-def test_calculator_multiply_static(clear_history_fixture):
-    """Testing the subtract method of the calc"""
-    # pylint: disable=unused-argument,redefined-outer-name
-    assert Calculator.multiply_numbers(1.0, 5.0) == 5.0
-
-def test_calculator_history_static_property(clear_history_fixture):
-    """Testing the subtract method of the calc"""
-    # pylint: disable=unused-argument,redefined-outer-name
-    Calculator.add_numbers(1.0, 2.0)
-    assert len(Calculator.history) == 1
-
-def test_clear_history():
-    """Testing clear history returns true for success"""
-    # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
-    Calculator.add_numbers(1.0, 2.0)
+    assert Calculator.history_length() == 0
     assert Calculator.clear_history() == True
 
-def test_get_calculation(clear_history_fixture):
-    """Testing getting a specific calculation out of the history"""
+@pytest.fixture
+def test_csv_fixture():
+    """csv fixture"""
     # pylint: disable=unused-argument,redefined-outer-name
-    Calculator.add_numbers(1.0, 2.0)
-    assert Calculator.get_calculation(0).get_result() == 3
 
-def test_get_calculation_last(clear_history_fixture):
-    """Testing getting the last calculation from the history"""
-    # pylint: disable=unused-argument,redefined-outer-name
-    Calculator.add_numbers(1.0, 2.0)
-    Calculator.divide_numbers(25.0, 5.0)
-    assert Calculator.get_calculation_last().get_result() == 5
+
+

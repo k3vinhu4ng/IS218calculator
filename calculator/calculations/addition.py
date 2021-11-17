@@ -1,5 +1,6 @@
 """Addition Class"""
-from calculator.operations.calculation import Calculation
+from calculator.calculations.calculation import Calculation
+
 
 class Addition(Calculation):
     """ calculation addition class"""

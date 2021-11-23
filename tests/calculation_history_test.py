@@ -231,20 +231,30 @@ def test_get_calculation_addition_multiplication(clear_history_fixture, setup_ad
 
 @pytest.fixture
 def setup_create_calculation_fixture():
-    """define a function that will run each time you pass it to a test, it is called a fixture"""
+    """Arrange & Act"""
     # pylint: disable=redefined-outer-name
+
+    # Arrange
     values = (1, 3)
-    Calculations.add_addition_calculation(values)
     values1 = (3, 3)
-    Calculations.add_multiplication_calculation(values1)
     values2 = (1, 10)
-    Calculations.add_division_calculation(values2)
     values3 = (5, 5)
+    values4 = (3, 3, 3, 0)
+
+    # Act
+
+    Calculations.add_addition_calculation(values)
+    Calculations.add_multiplication_calculation(values1)
+    Calculations.add_division_calculation(values2)
     Calculations.add_subtraction_calculation(values3)
+    Calculations.add_division_calculation(values4)
+
 
 def test_create(clear_history_fixture, setup_create_calculation_fixture):
-    """Testing getting a specific calculation out of the history"""
+    """ASSERT"""
     # pylint: disable=unused-argument,redefined-outer-name
+
+    # Assert
     assert Calculations.count_history() == 4
     assert Calculations.get_first_calculation().get_result() == 4
     assert Calculations.get_calculation(0).get_result() == 4
@@ -252,13 +262,5 @@ def test_create(clear_history_fixture, setup_create_calculation_fixture):
     assert Calculations.get_calculation(2).get_result() == 0.1
     assert Calculations.get_last_calculation_result_value() == -10
     assert isinstance(Calculations.get_last_calculation_object(), Subtraction)
-
-    test = (3, 4, 5, 6)
-    Calculations.add_addition_calculation(test)
-    test1 = (3, 3, 3, 0)
-    Calculations.add_division_calculation(test1)
     assert Calculations.get_last_calculation_result_value() == ZeroDivisionError
-
-
-
 

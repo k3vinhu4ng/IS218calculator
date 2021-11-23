@@ -255,12 +255,11 @@ def test_create(clear_history_fixture, setup_create_calculation_fixture):
     # pylint: disable=unused-argument,redefined-outer-name
 
     # Assert
-    assert Calculations.count_history() == 4
+    assert Calculations.count_history() == 5
     assert Calculations.get_first_calculation().get_result() == 4
     assert Calculations.get_calculation(0).get_result() == 4
     assert Calculations.get_calculation(1).get_result() == 9
     assert Calculations.get_calculation(2).get_result() == 0.1
-    assert Calculations.get_last_calculation_result_value() == -10
-    assert isinstance(Calculations.get_last_calculation_object(), Subtraction)
+    assert isinstance(Calculations.get_last_calculation_object(), Division)
     assert Calculations.get_last_calculation_result_value() == ZeroDivisionError
 

@@ -12,3 +12,4 @@ branches:
     - main
     - static
     - development
+    - csv

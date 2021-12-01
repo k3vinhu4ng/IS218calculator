@@ -72,10 +72,6 @@ class Calculations:
         Calculations.add_calculation(Division.create(values))
         return True
 
-
-    """new code goes here"""
-
-
     @staticmethod
     def get_first_calculation_result_value():
         """get last calculation result value"""

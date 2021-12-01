@@ -1,3 +1,4 @@
+"""testing calculator"""
 import pytest
 from calculator.history.calculations import Calculations
 from calculator.calculations.addition import Addition
@@ -59,12 +60,4 @@ def test_multiple(clear_history_fixture, test1):
 
     Calculator.clear_history()
     assert Calculator.history_length() == 0
-    assert Calculator.clear_history() == True
-
-@pytest.fixture
-def test_csv_fixture():
-    """csv fixture"""
-    # pylint: disable=unused-argument,redefined-outer-name
-
-
-
+    assert Calculator.clear_history() is True

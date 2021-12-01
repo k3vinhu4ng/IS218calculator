@@ -1,9 +1,5 @@
-"""Testing Operations"""
+"""Calculator Program"""
 
-from calculator.calculations.addition import Addition
-from calculator.calculations.subtraction import Subtraction
-from calculator.calculations.multiplication import Multiplication
-from calculator.calculations.division import Division
 from calculator.history.calculations import Calculations
 
 class Calculator:
@@ -16,7 +12,6 @@ class Calculator:
         return Calculations.get_last_calculation_result_value()
 
     @staticmethod
-    #tuple allows me to pass in as many values as a I want
     def add_numbers(tuple_values: tuple):
         """ adds list of numbers"""
         Calculations.add_addition_calculation(tuple_values)
@@ -40,8 +35,6 @@ class Calculator:
         Calculations.add_division_calculation(tuple_values)
         return True
 
-    """new code below here"""
-
     @staticmethod
     def history_length():
         """returns number of calculations"""
@@ -64,5 +57,6 @@ class Calculator:
 
     @staticmethod
     def clear_history():
+        """clears history"""
         Calculations.clear_history()
         return True

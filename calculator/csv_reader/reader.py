@@ -1,29 +1,24 @@
-import pandas as pd
+"""Reader for path and converting to pandas"""
 from pathlib import Path
+import pandas as pd
 
-def absolutepath(filepath):
-    """absolute path"""
-    relative = Path(filepath)
-    return relative.absolute()
 
+
+# def absolute_path(filepath):
+#     """absolute path"""
+#     relative = Path(filepath)
+#     return relative.absolute()
+#
 
 class CsvReader:
     """csv reader class"""
-    data = []
 
-    def __init__(self):
+    def __init__(self, filepath):
         self.data = []
-        self.reader(absolutepath(filepath))
-
+        self.reader(Path(filepath).absolute())
 
     def reader(self, filepath):
-        df = pd.read_csv(filepath)
-        for index, row in df.iterrows():
-            """
-            info being appended -> [(tuple), result]
-            first element is a tuple because that is what *args wants
-            i do this here instead of appending [1,2,3], and then having to make a tuple in the tests
-            """
-            self.data.append([(row['value1'], row['value2']), row['result']])
-
-
+        """sets up the csv file to be in a testable format"""
+        datagram = pd.read_csv(filepath)
+        for index, row in datagram.iterrows():
+            self.data.append([(row['value_1'], row['value_2']), row['result']])

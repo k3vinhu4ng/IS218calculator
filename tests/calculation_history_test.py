@@ -1,3 +1,5 @@
+"""Testing history"""
+
 import pytest
 from calculator.history.calculations import Calculations
 from calculator.calculations.addition import Addition
@@ -69,12 +71,12 @@ def setup_subtraction_calculation_fixture():
     subtraction = Subtraction(values)
     Calculations.add_calculation(subtraction)
 
-def test_add_calculation_to_history_subtraction(clear_history_fixture, setup_subtraction_calculation_fixture):
+def test_subtraction_history(clear_history_fixture, setup_subtraction_calculation_fixture):
     """Testing clear history returns true for success"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
 
-def test_clear_calculation_history_subtraction(clear_history_fixture, setup_subtraction_calculation_fixture):
+def test_clear_subtraction_history(clear_history_fixture, setup_subtraction_calculation_fixture):
     """testing clear history"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
@@ -87,12 +89,12 @@ def test_get_calculation_subtraction(clear_history_fixture, setup_subtraction_ca
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_calculation(0).get_result() == -3
 
-def test_get_calc_last_result_value_subtraction(clear_history_fixture, setup_subtraction_calculation_fixture):
+def test_history_sub_last(clear_history_fixture, setup_subtraction_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_last_calculation_result_value() == -3
 
-def test_get_calculation_first_subtraction(clear_history_fixture, setup_subtraction_calculation_fixture):
+def test_history_sub_first(clear_history_fixture, setup_subtraction_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_first_calculation().get_result() == -3
@@ -102,7 +104,7 @@ def test_history_count_subtraction(clear_history_fixture, setup_subtraction_calc
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.count_history() == 1
 
-def test_get_calc_last_result_object_subtraction(clear_history_fixture, setup_subtraction_calculation_fixture):
+def test_last_obj_sub(clear_history_fixture, setup_subtraction_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     #This test if it returns the last calculation as an object
@@ -118,12 +120,12 @@ def setup_division_calculation_fixture():
     division = Division(values)
     Calculations.add_calculation(division)
 
-def test_add_calculation_to_history_division(clear_history_fixture, setup_division_calculation_fixture):
+def test_history_division(clear_history_fixture, setup_division_calculation_fixture):
     """Testing clear history returns true for success"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
 
-def test_clear_calculation_history_division(clear_history_fixture, setup_division_calculation_fixture):
+def test_clear_division(clear_history_fixture, setup_division_calculation_fixture):
     """testing clear history"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
@@ -136,7 +138,7 @@ def test_get_calculation_division(clear_history_fixture, setup_division_calculat
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_calculation(0).get_result() == 0.25
 
-def test_get_calc_last_result_value_division(clear_history_fixture, setup_division_calculation_fixture):
+def test_last_value_division(clear_history_fixture, setup_division_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_last_calculation_result_value() == 0.25
@@ -151,7 +153,7 @@ def test_history_count_division(clear_history_fixture, setup_division_calculatio
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.count_history() == 1
 
-def test_get_calc_last_result_object_division(clear_history_fixture, setup_division_calculation_fixture):
+def test_last_division_object(clear_history_fixture, setup_division_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     #This test if it returns the last calculation as an object
@@ -167,12 +169,12 @@ def setup_multiplication_calculation_fixture():
     multiplication = Multiplication(values)
     Calculations.add_calculation(multiplication)
 
-def test_add_calculation_to_history_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_add_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing clear history returns true for success"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
 
-def test_clear_calculation_history_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_clear_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """testing clear history"""
     # pylint: disable=unused-argument,redefined-outer-name,singleton-comparison
     assert Calculations.count_history() == 1
@@ -180,27 +182,27 @@ def test_clear_calculation_history_multiplication(clear_history_fixture, setup_m
     assert Calculations.count_history() == 0
     assert Calculations.clear_history() == True
 
-def test_get_calculation_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_get_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing getting a specific calculation out of the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_calculation(0).get_result() == 4
 
-def test_get_calc_last_result_value_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_last_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_last_calculation_result_value() == 4
 
-def test_get_calculation_first_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_first_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.get_first_calculation().get_result() == 4
 
-def test_history_count_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_count_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing getting the count of calculations from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.count_history() == 1
 
-def test_get_calc_last_result_object_multiplication(clear_history_fixture, setup_multiplication_calculation_fixture):
+def test_last_object_mult(clear_history_fixture, setup_multiplication_calculation_fixture):
     """Testing getting the last calculation from the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     #This test if it returns the last calculation as an object
@@ -220,7 +222,7 @@ def setup_addition_multiplication_calculation_fixture():
     multiplication = Multiplication(values2)
     Calculations.add_calculation(multiplication)
 
-def test_get_calculation_addition_multiplication(clear_history_fixture, setup_addition_multiplication_calculation_fixture):
+def test_add_mult(clear_history_fixture, setup_addition_multiplication_calculation_fixture):
     """Testing getting a specific calculation out of the history"""
     # pylint: disable=unused-argument,redefined-outer-name
     assert Calculations.count_history() == 2
@@ -262,4 +264,3 @@ def test_create(clear_history_fixture, setup_create_calculation_fixture):
     assert Calculations.get_calculation(2).get_result() == 0.1
     assert isinstance(Calculations.get_last_calculation_object(), Division)
     assert Calculations.get_last_calculation_result_value() == ZeroDivisionError
-

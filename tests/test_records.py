@@ -27,7 +27,7 @@ def test_csv_write():
             "tests/tests_data/subtraction_large.csv"
             ]
     data = []
-    df_result = pd.DataFrame(data, columns = ["Record_Number",
+    df_result = pd.DataFrame(data, columns=["Record_Number",
                                               "Value_1", "Value_2",
                                               "Result", "Timestamp",
                                               "FileName"])
@@ -37,6 +37,8 @@ def test_csv_write():
                                           "Timestamp", "FileName"])
     df_zero.to_csv("results/zerodivision.csv")
     df_result.to_csv("results/results.csv")
+    df_zero.set_index('Record_Number')
+    df_result.set_index('Record_Number')
 
     for file in list_csv:
         filepath = file

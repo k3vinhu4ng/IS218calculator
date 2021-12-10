@@ -3,6 +3,7 @@ from calculator.calculations.addition import Addition
 from calculator.calculations.subtraction import Subtraction
 from calculator.calculations.multiplication import Multiplication
 from calculator.calculations.division import Division
+import pandas as pd
 
 
 class Calculations:
@@ -83,3 +84,17 @@ class Calculations:
         """get calculation result of certain index """
         calculation = Calculations.get_calculation(num)
         return calculation.get_result()
+
+    @staticmethod
+    def readHistoryFromCSV():
+        """Read the history from csv and put it into the history """
+
+
+    @staticmethod
+    def writeHistoryToCSV():
+        """Write the history to csv file"""
+    # pylint: disable=too-few-public-methods
+    history_list = pd.DataFrame(history)
+    history_list.to_csv('results/history', mode='a', header=False)
+
+

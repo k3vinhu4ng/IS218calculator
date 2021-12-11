@@ -7,7 +7,9 @@ class CalculatorController(ControllerBase):
     @staticmethod
     def post():
         if request.form['value1'] == '' or request.form['value2'] == '':
-            error = 'You must enter a value for value 1 and or value 2'
+            error = 'You must enter a value for value 1 and or value 2.'
+        if not request.form['value1'].isnumeric() or not request.form['value2'].isnumeric():
+            error = 'You must enter numeric values.'
         else:
             flash('You successfully calculated!')
             flash('You are awesome!')
@@ -26,6 +28,10 @@ class CalculatorController(ControllerBase):
     @staticmethod
     def get():
         return render_template('calculator2.html')
+
+    @staticmethod
+    def info():
+        return render_template('info.html')
 
 
 

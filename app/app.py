@@ -17,3 +17,7 @@ def calculator_get():
 @app.route("/calculator", methods=['POST'])
 def calculator_post():
     return CalculatorController.post()
+
+@app.route("/info", methods=['GET'])
+def info_get():
+    return CalculatorController.info()

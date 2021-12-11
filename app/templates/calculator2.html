@@ -10,13 +10,22 @@
 {% endblock %}
 {% block content %}
 
-    <h1>My Calculator</h1>
+<div class="container bg-light">
+    <br>
      {% if error %}
          <div class="alert alert-danger error" role="alert">
              {{ error }}
         </div>
       {% endif %}
-  <div class="mb-3 row">
+  <div class="row">
+      <div class = "col">
+
+
+
+<div class="card bg-light">
+
+<div class="card-body">
+    <h1 class="card-title">Calculator Program</h1>
 
     <form action="/calculator" method="POST">
         <label for="value1" class="col-sm-2 col-form-label">Value 1:</label><br>
@@ -37,9 +46,18 @@
             <input type="radio" name="operation" id="multiplication" value="multiplication">
             <label for="multiplication">multiplication</label>
           </div>
+            <div>
+            <input type="radio" name="operation" id="division" value="division">
+            <label for="multiplication">division</label>
+          </div>
         </fieldset>
 
         <input type="submit" value="Submit">
     </form>
-  </div>
+    <br>
+    </div>
+    </div>
+    <br>
+      </div></div>
+    </div>
 {% endblock %}

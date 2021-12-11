@@ -3,6 +3,9 @@ from calculator.calculations.addition import Addition
 from calculator.calculations.subtraction import Subtraction
 from calculator.calculations.multiplication import Multiplication
 from calculator.calculations.division import Division
+import pandas as pd
+from calculator.csv_reader.reader import CsvReader
+
 
 
 class Calculations:
@@ -83,3 +86,41 @@ class Calculations:
         """get calculation result of certain index """
         calculation = Calculations.get_calculation(num)
         return calculation.get_result()
+
+    @staticmethod
+    def readHistoryFromCSV():
+        """Read the history from csv and put it into the history """
+        filepath = "tests/tests_data/addition.csv"
+        test_file = CsvReader(filepath)
+
+        for i in test_file.data:
+            my_tuple = i[0]
+            Calculations.add_calculation(Addition.create(my_tuple))
+
+
+
+    @staticmethod
+    def writeHistoryToCSV():
+        """Write the history to csv file"""
+        # data = []
+        # df_result = pd.DataFrame(data, columns=["Result"])
+        #
+        # df_result.to_csv("results/history.csv")
+        #
+        # for i in Calculations.history:
+        #     df_result["Result"] = Calculations.get_first_calculation_result_value()
+        #     df_result.to_csv("results/history.csv", mode='a', header=False)
+
+        # df_result = pd.DataFrame(Calculations.history)
+        #
+        # df_result.to_csv("results/history.csv")
+
+        data = []
+        for i in range(Calculations.count_history()):
+            data.append(Calculations.get_num_calculation_result_value(i))
+
+        df_result = pd.DataFrame(data, columns=["Result"] )
+
+        df_result.to_csv("results/history.csv", index=False)
+
+

@@ -60,3 +60,13 @@ class Calculator:
         """clears history"""
         Calculations.clear_history()
         return True
+
+    @staticmethod
+    def getHistoryFromCSV():
+        Calculations.readHistoryFromCSV()
+        return True
+
+    @staticmethod
+    def writeHistoryToCSV():
+        Calculations.writeHistoryToCSV()
+        return True

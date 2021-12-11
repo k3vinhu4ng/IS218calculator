@@ -19,19 +19,19 @@ def test1():
     """define a function that will run each time you pass it to a test, it is called a fixture"""
     # pylint: disable=redefined-outer-name
     values = (1, 3)
-    Calculator.add_numbers(values)
+    Calculator.addition(values)
 
     values1 = (3, 3)
-    Calculator.subtract_numbers(values1)
+    Calculator.subtraction(values1)
 
     values2 = (1, 10)
-    Calculator.multiply_numbers(values2)
+    Calculator.multiplication(values2)
 
     values3 = (5, 5)
-    Calculator.divide_numbers(values3)
+    Calculator.division(values3)
 
     values4 = (5, 0)
-    Calculator.divide_numbers(values4)
+    Calculator.division(values4)
 
 
 def test_multiple(clear_history_fixture, test1):

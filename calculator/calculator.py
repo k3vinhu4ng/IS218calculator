@@ -70,3 +70,8 @@ class Calculator:
     def writeHistoryToCSV():
         Calculations.writeHistoryToCSV()
         return True
+
+    @staticmethod
+    def getHistory():
+        """ Get history """
+        return Calculations.history

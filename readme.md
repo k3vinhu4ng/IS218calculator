@@ -1,9 +1,9 @@
 ### Kevin Huang 
 ### IS 218-005
 ### Fall 2021
-## Project 3 Calculator Program/Website
+## Project 3 - Calculator Program & Website
 
-
+<br>
 
 ### Pytest Results
 ### pytest --cov results

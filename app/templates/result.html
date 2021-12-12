@@ -26,5 +26,38 @@
     <strong>Result: </strong> {{ result }}
         </div></div>
     <br>
+
+    <div class = "card bg-light">
+        <div class = "card-body">
+            <h4 class="card-title">Calculator History</h4>
+
+
+     {% if data %}
+        <table class = "table">
+            <TR>
+                    <th scope="col">Result</th>
+
+                </TR>
+            {% for item in data %}
+                <!--- This will not work you have to think about it--->
+                <TR>
+
+
+                    <TD>{{ item }}</TD>
+
+
+
+                </TR>
+
+
+
+            {% endfor %}
+
+        </table>
+        {% else %}
+	        <h5 class="text-danger">There are no calculations</h5>
+    {% endif %}
+</div></div><br>
+
 </div>
 {% endblock %}

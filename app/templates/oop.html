@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+<!--    <h1>Index I should see this change with a page refresh</h1>-->
+<!--    <p class="important">-->
+<!--      Welcome to my awesome homepage.-->
+<!--        <img src="{{ url_for('static', filename='images/sample.jpeg') }}">-->
+<!--    </p>-->
+
+
+
+    <div class="container bg-light">
+        <br>
+        <h1 class="text-danger">Object Oriented Programming (OOP)</h1>
+        <h3 class = "text-muted">Encapsulation, Abstraction, Inheritance, Polymorphism</h3>
+        <hr>
+
+        <h4>Introduction</h4>
+        <p>
+            Object Oriented Programming (OOP) is a pattern of programming that focuses on classes and objects.
+            Programming done with OOP allows each object to have its own procedures and method. In addition, OOP focuses on the
+            logic and relationships between these objects. Four main concerns of OOP is encapsulation, abstraction, inheritance,
+            and polymorphism.
+        </p>
+        <p>This article will give a brief introduction to OOP, and how OOP is used in a calculator program.</p>
+        <hr>
+        <h4>Encapsulation</h4>
+
+        <p>
+            Encapsulation describes wrapping data and methods that work on data within one unit. This restricts direct access
+            to certain variables and methods, unless allowed to do so. To change the data within a certain object, it can only
+            be done using the object's method. These variables within the object are known as private variables.
+        </p>
+
+        <p>
+            Encapsulation is very useful because it protects data from accidentally being changed.
+        </p>
+
+
+        <div style ="margin-left: 40px">
+    <h5>Encapsulation in Calculator Program</h5>
+        <p>
+            We use encapsulation in our calculator program by creating classes that has it owns methods, variables, and functions.
+            For example, we have classes for addition, subtraction, multiplication, and division. We also have a class for
+            the history of calculations. The history of calculations is stored in a list, and the history calculation class has a function
+            to clear the history. Encapsulation ensures that a function class, such as the addition class, cannot clear the history of the
+            history class. The clear history function only works for the appropriate class that is was designed for.
+
+        </p>
+
+            <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/9892b27b068cbdad00d8fc0e8e6b6f6efc522c45/calculator/history/calculations.py#L8-L17"
+               target="_blank" class="btn btn-outline-danger">View Example</a>
+</div>
+
+        <hr>
+
+        <h4>Abstraction</h4>
+        <p>
+            Abstraction refers to the abstract classes that can be used as a blueprint for other classes. Abstract classes
+            allow us to create a set of methods that can be used for any child classes built from the abstract class.
+        </p>
+
+        <p>For example, we can create a class with an abstract method. Within this class, we can create other classes that
+        have unique properties. However, we can use the abstract method of the parent class for each child class. Each child class
+        has the abstract method despite being different classes. </p>
+
+
+        <div style ="margin-left: 40px">
+        <h5>Abstraction in Calculator Program</h5>
+            <p>
+                In the calculator program, we used abstraction for creating a base class that takes care
+                of the input values for the calculator. This base class reduces redundancies and help provide many useful functions.
+                The base class allows us to create an object, convert input values into a tuple, and convert the input values to floats.
+                This base class is also used for our addition, subtraction, multiplication, and division classes. Rather than
+                writing all these functions for every calculation class, we included it in the base class which the calculation class
+                can use.
+            </p>
+
+            <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/9892b27b068cbdad00d8fc0e8e6b6f6efc522c45/calculator/calculations/calculation.py#L4-L22"
+               target="_blank" class="btn btn-outline-danger">View Example</a>
+        </div>
+        <hr>
+
+        <h4>Inheritance</h4>
+        <p>
+            Inheritance is the ability of one class to inherit properties from another class. For example, child classes can inherit
+            properties from parent classes.
+        </p>
+
+        <div style ="margin-left: 40px">
+            <h5>Inheritance in Calculator Program</h5>
+            <p>
+                Inheritance is used a lot in our calculator program. Inheritance allows us to reuse fields and methods
+                of existing classes. The addition, subtraction, multiplication, and division classes inherit the properties of
+                the calculation class that allow for multiple inputs, changing list to tuples, changing numbers to floats, and creating
+                objects.
+            </p>
+            <p>Then, the calculation history class inherits properties from each calculation class, such as addition. For example, the history
+            class now inherits the properties of the addition class because the history list includes the addition object, which has the
+            result value and class type.</p>
+
+            <p>Lastly, the calculator class inherits all the properties of the classes mentioned before. This hides
+            the complexity of the code behind  one simple class.</p>
+
+            <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/9892b27b068cbdad00d8fc0e8e6b6f6efc522c45/calculator/calculator.py#L20-L23"
+               target="_blank" class="btn btn-outline-danger">View Example</a>
+
+        </div>
+
+
+        <hr>
+
+        <h4>Polymorphism</h4>
+        <p>
+            Polymorphism refers to having many forms. In programming, this means that the same function can be used for different types.
+            For example, the Python function len() can be used for numbers, strings, and even lists.
+
+        </p>
+
+        <div style ="margin-left: 40px">
+            <h5>Polymorphism in Calculator Program</h5>
+            <p>
+                A good example of polymorphism in the calculator program is the get_result() function. This function exists in
+                the addition, subtraction, multiplication, and division class. Despite being different classes, the
+                get_result() function can be used for all of them. This is very similar to how the Python function len() can be
+                used for many forms, such as numbers, strings and lists.
+            </p>
+
+            <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/9892b27b068cbdad00d8fc0e8e6b6f6efc522c45/calculator/calculations/addition.py#L7-L12"
+               target="_blank" class="btn btn-outline-danger">View Example</a>
+
+
+        </div>
+
+
+
+
+        <br><br>
+    </div>
+
+
+
+{% endblock %}

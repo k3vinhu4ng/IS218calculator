@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+<!--    <h1>Index I should see this change with a page refresh</h1>-->
+<!--    <p class="important">-->
+<!--      Welcome to my awesome homepage.-->
+<!--        <img src="{{ url_for('static', filename='images/sample.jpeg') }}">-->
+<!--    </p>-->
+
+
+  <div class="container bg-light">
+        <br>
+        <h1 class="text-danger">Tips for New Python Programmers</h1>
+        <h3 class = "text-muted">Helpful Tools and Knowledge</h3>
+        <hr>
+
+        <h4>Introducing Pytest</h4>
+        <p>
+            A good tool to help test our programs in python is Pytest.
+        </p>
+        <p>
+            With Pytest, we can use two important tests - Linting and Coverage.
+        </p>
+        <div class="card w-75">
+            <div class="card-header">
+                Install Pytest
+            </div>
+            <div class="card-body text-danger">
+
+                <code>pip install pytest</code>
+            </div>
+        </div>
+
+        <hr>
+        <h4>Pylint</h4>
+        <p>Pylint, or linting, allows us to test if our code is up to coding standards.
+            Linting tests to make sure that we have fulfilled standardized practices of coding.
+            </p>
+        <p>A simple analogy would be to compare linting code to the MLA format used in writing.
+            Linting is a way to check if our code fulfills the standardized format of coding used in the industry.</p>
+        <p>To run linting on our program, type the following command into the terminal corresponding to your Python project.</p>
+        <div class="card w-75">
+            <div class="card-body text-danger">
+                <code>pytest --lint</code>
+            </div>
+        </div>
+
+        <p>If you have any linting errors, the test will tell you. For example, linting will
+        tell you where you have missed important documentation comments, or if you missed a next line
+        at the end of your code.</p>
+
+        <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/93a8b9e5739e37c09e5b4a67bd9839479d058953/calculator/calculations/division.py#L1-L15"
+           target="_blank" class="btn btn-outline-danger">Example of Proper Format</a>
+
+        <hr>
+
+        <h4>Coverage</h4>
+        <p>
+            Another important test to use is the coverage test. This test makes sure that all the code
+            you have written is used. Coverage reports will show you how many statements have been executed.
+        </p>
+        <p>To run a coverage test, enter the following code:</p>
+        <div class="card w-75">
+            <div class="card-body text-danger">
+                <code>pytest --cov</code>
+            </div>
+        </div>
+
+        <p>This would show you if any of your statements have not been executed. In the report, you can see the
+        coverage percentage for each file. Using coverage tests is also a great way to unit test our code.</p>
+        <hr>
+        <h4>Glossary of Object Oriented Programming Terms</h4>
+    <br>
+        <p><b>Factory - </b>In OOP, a factory is an object that
+            creates other objects. The objects created are considered
+            "new". More important, the use of factory objects, called factory method,
+            is a very important concept in object oriented programming.
+        </p>
+
+        <p><b>Instantiation - </b> Instantiation is when we create an object. In
+        object oriented programming, we instantiate a class when we created an object.
+        This object is the concrete instance of the class.</p>
+
+        <p><b>Object - </b> In programming, an object can be a variable,
+            data structure, function, or method. In object oriented
+         programming, an object is a combination of variables, functions, and
+        data structures. A class would be an example of an object.</p>
+
+        <p><b>Class - </b>A class is a predefined program code for created objects.
+        We can implement specific functions or methods for a class that we want to design.</p>
+
+        <p><b>Namespace - </b>A set of signs that are used to refer to and identify
+        objects of various kinds. </p>
+
+        <p><b>Constructor - </b>A special type of subroutine used to created an object. It prepares the
+        new objects for use by accepting arguments that the constructor
+        uses to set required variables.</p>
+
+        <p><b>Fixture - </b>A fixture refers to test fixtures, which are sets of
+        predefined values or states used to run a test. For a calculator program,
+        a fixture would predefine certain variables, and we would use this fixture to test if
+        the functions create the correct result.</p>
+
+        <p><b>Type Hint - </b>Type hinting allows us to indicate the type
+            value within our Python code.
+        </p>
+
+        <p><b>Type Cast - </b>Type casting allows us convert value types in Python.</p>
+
+        <p><b>Unit Test - </b>Unit testing is a way to test code by testing individual units
+        of code to make sure they are ready and free of errors.</p>
+
+        <p><b>Static - </b>Static means that the corresponding
+            variable or method is available at the class level, meaning that
+        an instance of the class is not needed to access it.</p>
+
+        <p><b>Class Method - </b>A class method is a method that is bound to the class
+        and not the object of the class.</p>
+
+        <p><b>Facade - </b>Facade refers to the facade pattern of programming
+        design pattern. This is used in object oriented programming and helps
+        hide the complexities of larger systems and provide simple interfaces
+        for end users. A Facade can be a single class that represents an
+        entire subsystem.</p>
+
+        <p><b>Design Patterns Used - </b>There are many design patterns used in programming. A Facade is one of them.
+        Factory method is also a design pattern used. Each design pattern has its own pros and cons.</p>
+
+        <p><b>Method - </b>A method is code that only runs when it is called. In object oriented
+            programming,
+        a method is defined within an class. </p>
+
+        <p><b>Property - </b>Property refers to the special values included in a class or object</p>
+
+
+
+
+        <br><br>
+    </div>
+
+
+{% endblock %}

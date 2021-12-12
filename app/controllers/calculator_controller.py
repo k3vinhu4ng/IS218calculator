@@ -30,8 +30,22 @@ class CalculatorController(ControllerBase):
         return render_template('calculator2.html')
 
     @staticmethod
-    def info():
-        return render_template('info.html')
+    def aaa():
+        return render_template('aaa.html')
+
+    @staticmethod
+    def python_tips():
+        return render_template('python.html')
+
+    @staticmethod
+    def soc():
+        return render_template('soc.html')
+
+    @staticmethod
+    def oop():
+        return render_template('oop.html')
+
+
 
 
 

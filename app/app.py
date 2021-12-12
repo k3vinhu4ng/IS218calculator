@@ -18,6 +18,18 @@ def calculator_get():
 def calculator_post():
     return CalculatorController.post()
 
-@app.route("/info", methods=['GET'])
-def info_get():
-    return CalculatorController.info()
+@app.route("/aaa", methods=['GET'])
+def aaa_get():
+    return CalculatorController.aaa()
+
+@app.route("/python", methods=['GET'])
+def python_get():
+    return CalculatorController.python_tips()
+
+@app.route("/soc", methods=['GET'])
+def soc_get():
+    return CalculatorController.soc()
+
+@app.route("/oop", methods=['GET'])
+def oop_get():
+    return CalculatorController.oop()

@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+<!--    <h1>Index I should see this change with a page refresh</h1>-->
+<!--    <p class="important">-->
+<!--      Welcome to my awesome homepage.-->
+<!--        <img src="{{ url_for('static', filename='images/sample.jpeg') }}">-->
+<!--    </p>-->
+
+   <div class="container bg-light">
+        <br>
+        <h1 class="text-danger">AAA Testing</h1>
+
+        <h3 class = "text-muted">Arrange - Act - Assert</h3>
+        <hr>
+
+        <h4>Introduction</h4>
+        <p>
+            AAA Testing refers to Arrange, Act, and Assert, which is a pattern for writing good tests for our programs.
+            Testing helps us know if our program works or if our program is full of errors.
+        </p>
+        <hr>
+        <h4>The AAA Pattern</h4>
+        <p>The AAA pattern is great for testing.</p>
+        <div style = "margin-left: 40px">
+        <h5>Arrange</h5>
+        <p>This step arranges the inputs and targets. This involves handling any operations needed for the test. This can include
+        objects, special settings, prepping a database, logging into a web app, etc</p>
+        <h5>Act</h5>
+        <p>
+            This refers to acting on the target behavior. The Act step covers the main thing to be test. This can involve calling a method
+            or function, calling a REST API, or interacting with a webpage.
+        </p>
+        <h5>Assert</h5>
+         <p>
+            Assert is the last step, and it refers to asserting the expected outcomes. The actions done in the Act step should
+            produce some type of response. Assert aims to verify the response. In simple cases, Assert can mean checking
+            numeric or string values. In more complex cases, Assert may be checking multiple facets of a system. Assert
+            basically determines whether or not the test passes or fails.
+        </p>
+        </div>
+        <hr>
+        <h4>Unit Testing</h4>
+        <p>Let us take a look at how AAA is used in Python Unit Testing.</p>
+        <p>We will be writing a Unit Test using AAA for the function below.</p>
+
+
+        <div class="card w-75">
+            <div class="card-body text-danger">
+                <code>def addition(num1 + num2):<br>
+                    &nbsp &nbsp return num1 + num2
+
+                </code>
+            </div>
+        </div>
+        <br>
+
+        <p> Now we will write a Unit Test for the function addition.</p>
+
+
+        <div class="card w-75">
+            <div class="card-body text-danger">
+                <code>def test_addition():<br>
+                    &nbsp &nbsp #Arrange <br>
+                    &nbsp &nbsp value1 = 5 <br>
+                    &nbsp &nbsp value2 = 3 <br>
+                    &nbsp &nbsp <br>
+                    &nbsp &nbsp #Act <br>
+                    &nbsp &nbsp answer = addition(value1, value2) <br>
+                    &nbsp &nbsp <br>
+                    &nbsp &nbsp #Assert <br>
+                    &nbsp &nbsp Assert answer == 8
+
+
+
+                </code>
+            </div>
+        </div><br>
+        <p>For the Arrange step, we set test values for two variables that will be put into our function. Then, we Acted
+        on our function by calling it. Lastly, we Asserted that our answer is 8, since our initial test values were 5 and 3.</p>
+
+        <hr>
+        <h4>AAA Unit Testing in Calculator Program</h4>
+
+        <p>We have implemented the Arrange, Act, and Assert Unit Testing pattern in our Calculator program. Click below to view a simple example</p>
+
+        <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/0346c4665900a5dad67a279ce07eb08b1d28ec7d/tests/calculation_history_test.py#L232-L264"
+           target="_blank" class="btn btn-outline-danger">AAA Unit Testing</a>
+        <br>
+       <hr>
+
+        <h4>Introducing CSV Files</h4>
+        <p>Often times, we need to test our programs with large data sets known as CSV files. CSV stands for comma separated values.
+            We also convert common excel files in csv files that can be used in our programs. A CSV file looks like this.</p>
+        <div class="card w-75">
+            <div class="card-header">
+                Sample_CSV_File.csv
+            </div>
+            <div class="card-body text-danger">
+
+                <code>name, age, gender</code><br>
+                <code>mike, 13, male</code><br>
+                <code>sarah, 25, female</code><br>
+                <code>ben, 49, male</code><br>
+
+            </div>
+        </div>
+        <br>
+        <p>However, a CSV file for our calculator program would involve numerical values and results
+            that will be tested by our calculator functions.</p>
+
+        <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/history/tests/tests_data/addition.csv#L1-L3"
+           target="_blank" class="btn btn-outline-danger">CSV File for Testing Calculator</a>
+        <br>
+        <hr>
+
+        <h4>Installing Pandas</h4>
+
+        <p>To test our CSV files, we first need to install pandas so we can effectively arrange our csv file into a testable format.</p>
+
+        <div class="card w-75">
+            <div class="card-header">
+                Install Pandas on Terminal
+            </div>
+            <div class="card-body text-danger">
+
+                <code>pip install pandas</code>
+
+            </div>
+        </div>
+        <br>
+
+        <p>Afterwards, we have the necessary tools to effectively use our csv files in our test. </p>
+<hr>
+
+        <h4>Testing CSV files with AAA</h4>
+        <br>
+
+        <h5>Arrange</h5>
+        <p>To arrange our data, we need to set up the CSV file so that the values can be used to test our functions. To arrange
+        the CSV file, we need to find the corresponding location of the CSV file, read the file, and convert the values into a list.</p>
+
+        <h5>Act</h5>
+        <p>To act on our data, we need to run a for loop to go through the list of data. Then, we take the indexed values
+        and use them to test our function</p>
+
+        <h5>Assert</h5>
+        <p>Lastly, we assert our indexed values with the expected results from the data from our csv file.</p>
+
+
+        <a href="https://github.com/k3vinhu4ng/IS218calculator/blob/f27bd63582b26452db3680bb895268f0f024ab6b/tests/addition_csv_test.py#L6-L18"
+           target="_blank" class="btn btn-outline-danger">AAA Testing for CSV File</a>
+
+
+        <br><br>
+    </div>
+
+
+
+{% endblock %}
